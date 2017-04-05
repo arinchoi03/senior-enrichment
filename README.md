@@ -25,22 +25,22 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### DB Design
 
 - Students
-  * have profile info (e.g. name and email)
-  * must be assigned to a campus
+  x have profile info (e.g. name and email)
+  x must be assigned to a campus
 
 - Campuses
-  * have info such as a name and image
-  * can have many students assigned (may have none)
-  
+  x have info such as a name and image
+  x can have many students assigned (may have none)
+
 ### Views and Functionality
 #### See Wireframes folder for visual
 
 - Navigation: as a user I...
-  * will land on **Home** by default
-  * can navigate to **Campuses** from **Home**
-  * can navigate to **Students** from **Home**
-  * can navigate to view a **Single Campus** from **Campuses**
-  * can navigate to view a **Single Student** from **Students**
+  x will land on **Home** by default
+  x can navigate to **Campuses** from **Home**
+  x can navigate to **Students** from **Home**
+  x can navigate to view a **Single Campus** from **Campuses**
+  x can navigate to view a **Single Student** from **Students**
   * can navigate to view a **Single Student** from **Campuses** (for any student at that campus)
   * can navigate to view that student's **Single Campus** from **Single Student**
 
@@ -61,29 +61,29 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### Routes
 
 ```
-GET 
-- all campuses
-- a campus by id
-- all students
-- a student by id
+GET
+x all campuses
+x a campus by id
+x all students
+x a student by id
 ```
 
 ```
 POST
-- new campus
-- new student
+x new campus
+x new student
 ```
 
 ```
 PUT
-- updated student info for one student
-- updated campus info for one campus
+x updated student info for one student
+x updated campus info for one campus
 ```
 
 ```
 DELETE
-- a campus
-- a student
+x a campus
+x a student
 ```
 
 ## Evaluation
