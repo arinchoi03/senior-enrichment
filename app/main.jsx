@@ -15,9 +15,10 @@ import store from './store'
 import CampusesContainer from './containers/CampusesContainer'
 import StudentsContainer from './containers/StudentsContainer'
 import NewStudent from './containers/NewStudent'
+import CampusContainer from './containers/CampusContainer'
 
 // Components
-import Campus from './components/Campus'
+// import Campus from './components/Campus'
 import Student from './components/Student'
 import Home from './components/Home'
 
@@ -50,7 +51,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path= "/" component={Home} onEnter={onHomeEnter}>
         <Route path= "/campuses" component={CampusesContainer} />
-        <Route path= "/campuses/:campusId" component= {Campus} />
+        <Route path= "/campuses/:campusId" component= {CampusContainer} />
         <Route path= "/students" component={StudentsContainer} />
         <Route path = "/students/:studentId" component={Student} />
         <Route path = "/new-student" component={NewStudent} />

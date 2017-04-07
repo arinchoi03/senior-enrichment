@@ -1,7 +1,7 @@
 // import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Campuses from '../components/Campuses'
-
+import { selectCampus } from '../action-creators/campuses'
 
 const mapStateToProps = (state) => {
 
@@ -12,12 +12,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapStateToProps = (dispatch) => {
-
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCampus(campus) {
+      dispatch(selectCampus(campus))
+    }
+  }
+}
 
 const CampusesContainer = connect(
-  mapStateToProps
+  mapStateToProps, mapDispatchToProps
   )(Campuses);
 
 export default CampusesContainer;

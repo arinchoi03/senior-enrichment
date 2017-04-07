@@ -27,3 +27,10 @@ export const getCampuses = function(campuses) {
     campuses: campuses
   }
 }
+
+export const selectCampus = function(campus) {
+  return {
+    type: 'SELECT_CAMPUS',
+    campus: campus
+  }
+}

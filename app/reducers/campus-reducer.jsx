@@ -7,6 +7,7 @@ const GET_CAMPUSES = 'GET_CAMPUSES'
 const ADD_CAMPUS = 'ADD_CAMPUS';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
 const EDIT_CAMPUS = 'EDIT_CAMPUS';
+const SELECT_CAMPUS = 'SELECT_CAMPUS';
 
 export default function ( state = campusInitialState, action) {
 
@@ -25,6 +26,9 @@ export default function ( state = campusInitialState, action) {
       break;
     case EDIT_CAMPUS:
 
+      break;
+    case SELECT_CAMPUS:
+      newState.selectedCampus = action.campus;
       break;
     default:
       return state
