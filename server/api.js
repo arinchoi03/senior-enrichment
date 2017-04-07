@@ -13,8 +13,8 @@ api.get('/', function(req, res, next) {
 	res.send(`You're at home!`)
 })
 
-api.use('/campus', campusRouter)
-api.use('/student', studentRouter)
+api.use('/campuses', campusRouter)
+api.use('/students', studentRouter)
 
 api.use(function(err, req, res, next) {
 	console.error(err.message)

@@ -4,7 +4,10 @@ const Campus = db.Campus;
 
 campusRouter.get('/', function(req, res, next) {
   Campus.findAll()
-  .then((allCampuses) => res.send(allCampuses))
+  .then((allCampuses) => {
+    console.log('allCampuses in campus Route', allCampuses)
+    res.json(allCampuses)
+  })
   .catch(next);
 })
 

@@ -4,7 +4,6 @@ import campusReducer from './campus-reducer'
 import studentReducer from './student-reducer'
 
 // intial state moved to separate reducer files?
-const initialState = {};
 
 // const rootReducer = function(state = initialState, action) {
 //   switch(action.type) {
@@ -12,4 +11,4 @@ const initialState = {};
 //   }
 // };
 
-export default combineReducers({campus: campusReducer, student: studentReducer});
+export default combineReducers({campusData: campusReducer, studentData: studentReducer});

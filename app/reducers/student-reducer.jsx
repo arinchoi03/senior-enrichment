@@ -1,4 +1,4 @@
-import { ADD_STUDENT, REMOVE_STUDENT, EDIT_STUDENT } from '../action-creators/students'
+import { GET_STUDENTS, ADD_STUDENT, REMOVE_STUDENT, EDIT_STUDENT } from '../action-creators/students'
 
 const studentInitialState = {
   students: [],
@@ -18,6 +18,9 @@ export default function ( state = studentInitialState, action) {
       break;
     case EDIT_STUDENT:
       newState.selectedStudent = action.student
+      break;
+    case GET_STUDENTS:
+      newState.students = action.students
       break;
     default:
       return state;

@@ -1,15 +1,21 @@
-import { ADD_CAMPUS, REMOVE_CAMPUS, EDIT_CAMPUS } from '../action-creators/campuses'
-
 const campusInitialState = {
   campuses: [],
   selectedCampus: {}
 }
 
+const GET_CAMPUSES = 'GET_CAMPUSES'
+const ADD_CAMPUS = 'ADD_CAMPUS';
+const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
+const EDIT_CAMPUS = 'EDIT_CAMPUS';
+
 export default function ( state = campusInitialState, action) {
 
-  let newState = Object.assign({}, state)
+  const newState = Object.assign({}, state)
 
   switch (action.type) {
+    case GET_CAMPUSES:
+      newState.campuses = action.campuses
+      break;
     case ADD_CAMPUS:
       newState.selectedCampus = action.campus;
       // do something with the selected campus in thunk??
@@ -23,4 +29,7 @@ export default function ( state = campusInitialState, action) {
     default:
       return state
   }
+  return newState;
 }
+
+//DISPATCHER???
