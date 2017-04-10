@@ -5,12 +5,12 @@ const Campus = (props) => {
   // const students = props.students;
   // const campus = props.campus;
   const selectedCampus = props.selectedCampus;
-  console.log('students in one campus', props.students)
+  console.log('students in one campus', props)
 
   return (
     <div>
       <h1>{selectedCampus.name}</h1>
-        <Students students={props.students} campuses={props.campuses} />
+        <Students students={props.students} campuses={props.campuses} selectedStudent={props.selectedStudent} />
     </div>
   )
 }

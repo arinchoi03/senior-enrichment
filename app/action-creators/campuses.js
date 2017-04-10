@@ -34,3 +34,10 @@ export const selectCampus = function(campus) {
     campus: campus
   }
 }
+
+export const getCampusById = function(campusId) {
+  return function(dispatch) {
+    return axios.get(`/api/campuses/${campusId}`)
+      .then(res => dispatch(selectCampus(res.data)))
+  }
+}

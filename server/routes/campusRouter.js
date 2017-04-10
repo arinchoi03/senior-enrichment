@@ -12,14 +12,14 @@ campusRouter.get('/', function(req, res, next) {
 })
 
 campusRouter.get('/:campusId', function(req, res, next) {
-  if (typeof (+req.params.id) !== 'number') {
+  if (typeof (+req.params.campusId) !== 'number') {
     res.status(404).send('Invalid Campus Id entered!')
   } else {
     Campus.findById(req.params.campusId)
     .then(oneCampus => {
       if (!oneCampus) {
         res.status(404).send(`No campus with id ${req.params.campusId} exists!`)
-      } else{
+      } else {
         res.status(200).send(oneCampus)
       }
     })

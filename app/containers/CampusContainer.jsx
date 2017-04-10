@@ -5,13 +5,16 @@ import Campus from '../components/Campus'
 
 const mapStateToProps = (state) => {
 
-  const filteredStudents = state.studentData.students.filter((student) => student.campusId === state.campusData.selectedCampus.id)
+  const filteredStudents = state.studentData.students.filter((student) => {
+    return student.campusId === state.campusData.selectedCampus.id
+  })
   //returns array of students in campus: // console.log('look at the filtered students in campuscontainer', filteredStudents)
 
   return {
     students: filteredStudents,
     selectedCampus: state.campusData.selectedCampus,
-    campuses: state.campusData.campuses
+    campuses: state.campusData.campuses,
+    selectedStudent: state.studentData.selectedStudent
   }
 }
 

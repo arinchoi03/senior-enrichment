@@ -9,15 +9,15 @@ studentRouter.get('/', function(req, res, next) {
   .catch(next);
 })
 
-studentRouter.get('/:campusId', function(req, res, next) {
-  if (typeof (+req.params.id) !== 'number') {
+studentRouter.get('/:studentId', function(req, res, next) {
+  if (typeof (+req.params.studentId) !== 'number') {
     res.status(404).send('Invalid student Id entered!')
   } else {
     Student.findById(req.params.studentId)
     .then(oneStudent => {
       if (!oneStudent) {
         res.status(404).send(`No student with id ${req.params.studentId} exists!`)
-      } else{
+      } else {
         res.status(200).send(oneStudent)
       }
     })
@@ -25,22 +25,22 @@ studentRouter.get('/:campusId', function(req, res, next) {
   }
 })
 
-studentRouter.post(':/campusId', function(req, res, next) {
+studentRouter.post(':/studentId', function(req, res, next) {
   Student.create(req.body)
   .then(newStudent => res.status(200).send(newStudent))
   .catch(next)
 })
 
-studentRouter.put(':/campusId', function(req, res, next) {
+studentRouter.put(':/studentId', function(req, res, next) {
   Student.update(req.body)
   .then(updatedStudent => res.status(201).send(updatedStudent))
   .catch(next)
 })
 
-studentRouter.delete(':/campusId', function(req, res, next) {
+studentRouter.delete(':/studentId', function(req, res, next) {
   Student.destroy({
     where: {
-      id: req.params.campusId
+      id: req.params.studentId
     }
   })
   .then(() => res.send('Student has been deleted'))
