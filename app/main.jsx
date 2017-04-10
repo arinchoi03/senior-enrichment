@@ -15,7 +15,7 @@ import store from './store'
 import CampusesContainer from './containers/CampusesContainer'
 import StudentsContainer from './containers/StudentsContainer'
 import StudentContainer from './containers/StudentContainer'
-import NewStudent from './containers/NewStudent'
+import NewStudentForm from './containers/NewStudent'
 import CampusContainer from './containers/CampusContainer'
 
 // Components
@@ -69,7 +69,7 @@ ReactDOM.render(
         <Route path= "/campuses/:campusId" component= {CampusContainer} onEnter={onCampusEnter} />
         <Route path= "/students" component={StudentsContainer} />
         <Route path = "/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>
-        <Route path = "/new-student" component={NewStudent} />
+        <Route path = "/new-student" component={NewStudentForm} />
         <IndexRedirect to = "/campuses" />
       </Route>
     </Router>

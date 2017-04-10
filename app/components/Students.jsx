@@ -7,24 +7,40 @@ export default function Students(props) {
   const campuses = props.campuses;
   const setStudent = props.setStudent;
   const setCampus = props.setCampus;
+  const addStudent = props.addStudent;
+  const removeStudent = props.removeStudent;
 
     return (<div>
               <h2>Students</h2>
-              <table className='table'>
+              <button>
+                <Link to={`/new-student`}>
+                  <span>Add A Student</span>
+                </Link>
+              </button>
+              <table className="table table-striped">
                 <thead>
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Campus</th>
+                    <th>Remove?</th>
                   </tr>
                 </thead>
                 <tbody>
                   {students && students.map(
                     student => <tr key={student.id}>
-                    <td><Link to={`/students/${student.id}`} onClick={() => setStudent(student)}>{student.name}</Link></td>
-                    <td>{student.email}</td>
-                    <td><Link to={`/campuses/${student.campusId}`} onClick={() => setCampus(student.campusId)}>{campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}</Link>
-                    </td>
+                      <td><Link to={`/students/${student.id}`} onClick={() => setStudent(student)}>{student.name}</Link></td>
+                      <td>{student.email}</td>
+                      <td><Link to={`/campuses/${student.campusId}`} onClick={() => setCampus(student.campusId)}>{campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}</Link>
+                      </td>
+                      <td>
+                        <button className="btn btn-link btn-sm" data={student.id} onClick={(e) => {
+                          e.preventDefault()
+                          removeStudent(student.id)}
+                        }>
+                          <span className="glyphicon glyphicon-remove" />
+                        </button>
+                      </td>
                     </tr>
                   )}
                 </tbody>
@@ -33,3 +49,4 @@ export default function Students(props) {
 }
 
 // getting error to add unique key here when navigating to single student page..
+// when deleting one user, the data is not being set for the FIRST user?

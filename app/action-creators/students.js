@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 export const GET_STUDENTS = 'GET_STUDENTS'
 export const ADD_STUDENT = 'ADD_STUDENT';
@@ -16,7 +17,7 @@ export const addStudent = function(student) {
 export const removeStudent = function(student) {
   return {
     type: REMOVE_STUDENT,
-    student: null //? removed student, so set to null?
+    student: student
   }
 }
 
@@ -45,5 +46,22 @@ export const getStudentById = function(studentId) {
   return function(dispatch) {
     return axios.get(`/api/students/${studentId}`)
       .then(res => dispatch(selectStudent(res.data)))
+  }
+}
+
+export const deleteAStudent = function(studentId) {
+  return function(dispatch) {
+    return axios.delete(`/api/students/${studentId}`)
+      .then(res => dispatch(removeStudent(studentId)))
+  }
+}
+
+export const addAStudent = function(student) {
+  return function(dispatch) {
+    return axios.post(`/api/students/`, student)
+      .then(res => {
+        dispatch(addStudent(student))
+        browserHistory.push(`/students`)
+      })
   }
 }

@@ -9,10 +9,12 @@ const Student = (props) => {
   const students = [props.selectedStudent]
   const campuses = props.campuses;
   const setStudent = props.setStudent;
+  const addStudent = props.addStudent
+  const removeStudent = props.removeStudent
 
   // reusing the Students component
   return (
-    <Students students={students} campuses={campuses} setStudent={setStudent} />
+    <Students students={students} campuses={campuses} setStudent={setStudent} addStudent={addStudent} removeStudent={removeStudent} />
   )
 }
 

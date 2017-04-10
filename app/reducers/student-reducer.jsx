@@ -11,10 +11,11 @@ export default function ( state = studentInitialState, action) {
 
   switch (action.type) {
     case ADD_STUDENT:
-      newState.selectedStudent = action.student;
+      newState.students = [...state.students, action.student]
       break;
     case REMOVE_STUDENT:
-      newState.selectedStudent = null;
+      //puts new state's student array as array filtering out student that doesn't match
+      newState.students = state.students.filter((student) => (student.id !== action.student.id))
       break;
     case EDIT_STUDENT:
       newState.selectedStudent = action.student

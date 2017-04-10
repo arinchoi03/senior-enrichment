@@ -56,7 +56,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can delete a campus
   * can create a student
   * can edit a student's info, including the campus that student is assigned to
-  * can delete a student
+  x can delete a student - need to redirect to students page after
 
 ### Routes
 

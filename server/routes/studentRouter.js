@@ -9,6 +9,15 @@ studentRouter.get('/', function(req, res, next) {
   .catch(next);
 })
 
+
+studentRouter.post('/', function(req, res, next) {
+  console.log(req.body)
+  Student.create(req.body)
+  .then(newStudent => res.status(200).send(newStudent))
+  .catch(next)
+})
+
+
 studentRouter.get('/:studentId', function(req, res, next) {
   if (typeof (+req.params.studentId) !== 'number') {
     res.status(404).send('Invalid student Id entered!')
@@ -25,25 +34,21 @@ studentRouter.get('/:studentId', function(req, res, next) {
   }
 })
 
-studentRouter.post(':/studentId', function(req, res, next) {
-  Student.create(req.body)
-  .then(newStudent => res.status(200).send(newStudent))
-  .catch(next)
-})
-
-studentRouter.put(':/studentId', function(req, res, next) {
+studentRouter.put('/:studentId', function(req, res, next) {
   Student.update(req.body)
   .then(updatedStudent => res.status(201).send(updatedStudent))
   .catch(next)
 })
 
-studentRouter.delete(':/studentId', function(req, res, next) {
+studentRouter.delete('/:studentId', function(req, res, next) {
   Student.destroy({
     where: {
       id: req.params.studentId
     }
   })
-  .then(() => res.send('Student has been deleted'))
+  .then(() => {
+    res.redirect('/')
+  })
   .catch(next)
 })
 
