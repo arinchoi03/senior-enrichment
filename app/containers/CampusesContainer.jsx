@@ -1,7 +1,7 @@
 // import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Campuses from '../components/Campuses'
-import { selectCampus } from '../action-creators/campuses'
+import { selectCampus, deleteACampus } from '../action-creators/campuses'
 
 const mapStateToProps = (state) => {
 
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCampus(campus) {
       dispatch(selectCampus(campus))
+    },
+    deleteCampus(campus){
+      dispatch(deleteACampus(campus))
     }
   }
 }

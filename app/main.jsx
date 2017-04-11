@@ -13,14 +13,15 @@ import store from './store'
 
 // Containers
 import CampusesContainer from './containers/CampusesContainer'
+import CampusContainer from './containers/CampusContainer'
 import StudentsContainer from './containers/StudentsContainer'
 import StudentContainer from './containers/StudentContainer'
+import NewCampusForm from './containers/NewCampus'
 import NewStudentForm from './containers/NewStudent'
-import CampusContainer from './containers/CampusContainer'
 
 // Components
 // import Campus from './components/Campus'
-import Student from './components/Student'
+// import Student from './components/Student'
 import Home from './components/Home'
 
 // action creators to dispatch
@@ -68,8 +69,9 @@ ReactDOM.render(
         <Route path= "/campuses" component={CampusesContainer} />
         <Route path= "/campuses/:campusId" component= {CampusContainer} onEnter={onCampusEnter} />
         <Route path= "/students" component={StudentsContainer} />
-        <Route path = "/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>
+        <Route path = "/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
         <Route path = "/new-student" component={NewStudentForm} />
+        <Route path = "/new-campus" component={NewCampusForm} />
         <IndexRedirect to = "/campuses" />
       </Route>
     </Router>

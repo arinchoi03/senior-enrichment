@@ -18,11 +18,11 @@ export default function ( state = campusInitialState, action) {
       newState.campuses = action.campuses
       break;
     case ADD_CAMPUS:
-      newState.selectedCampus = action.campus;
+      newState.campuses = [...state.campuses, action.campus]
       // do something with the selected campus in thunk??
       break;
     case REMOVE_CAMPUS:
-      // how do I remove campus??
+      newState.campuses = state.campuses.filter((campus) => campus.id !== action.campus)
       break;
     case EDIT_CAMPUS:
 

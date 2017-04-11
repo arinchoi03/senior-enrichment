@@ -10,6 +10,9 @@ export default function ( state = studentInitialState, action) {
   let newState = Object.assign({}, state)
 
   switch (action.type) {
+    case GET_STUDENTS:
+      newState.students = action.students
+      break;
     case ADD_STUDENT:
       newState.students = [...state.students, action.student]
       break;
@@ -19,9 +22,6 @@ export default function ( state = studentInitialState, action) {
       break;
     case EDIT_STUDENT:
       newState.selectedStudent = action.student
-      break;
-    case GET_STUDENTS:
-      newState.students = action.students
       break;
     case SELECT_STUDENT:
       newState.selectedStudent = action.student;

@@ -52,7 +52,10 @@ export const getStudentById = function(studentId) {
 export const deleteAStudent = function(studentId) {
   return function(dispatch) {
     return axios.delete(`/api/students/${studentId}`)
-      .then(res => dispatch(removeStudent(studentId)))
+      .then(res => {
+        dispatch(removeStudent(studentId))
+        browserHistory.push('/students')
+      })
   }
 }
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export const addCampus = function(campus) {
   return {
@@ -10,7 +11,7 @@ export const addCampus = function(campus) {
 export const removeCampus = function(campus) {
   return {
     type: 'REMOVE_CAMPUS',
-    campus: null //? removed campus, so set to null?
+    campus: campus
   }
 }
 
@@ -39,5 +40,26 @@ export const getCampusById = function(campusId) {
   return function(dispatch) {
     return axios.get(`/api/campuses/${campusId}`)
       .then(res => dispatch(selectCampus(res.data)))
+  }
+}
+
+
+export const addACampus = function(campus) {
+  return function(dispatch) {
+    return axios.post(`/api/campuses/`, campus)
+      .then((res) => {
+        dispatch(addCampus(campus))
+        browserHistory.push(`/campuses`)
+      })
+  }
+}
+
+export const deleteACampus = function(campus) {
+  return function(dispatch) {
+    return axios.delete(`/api/campuses/${campus.id}`)
+      .then((res) => {
+        dispatch(removeCampus(campus))
+        browserHistory.push('/campuses')
+      })
   }
 }

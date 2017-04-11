@@ -26,19 +26,19 @@ campusRouter.get('/:campusId', function(req, res, next) {
   }
 })
 
-campusRouter.post(':/campusId', function(req, res, next) {
+campusRouter.post('/', function(req, res, next) {
   Campus.create(req.body)
   .then(newCampus => res.status(200).send(newCampus))
   .catch(next)
 })
 
-campusRouter.put(':/campusId', function(req, res, next) {
+campusRouter.put('/:campusId', function(req, res, next) {
   Campus.update(req.body)
   .then(updatedCampus => res.status(201).send(updatedCampus))
   .catch(next)
 })
 
-campusRouter.delete(':/campusId', function(req, res, next) {
+campusRouter.delete('/:campusId', function(req, res, next) {
   Campus.destroy({
     where: {
       id: req.params.campusId

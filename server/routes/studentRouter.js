@@ -11,7 +11,6 @@ studentRouter.get('/', function(req, res, next) {
 
 
 studentRouter.post('/', function(req, res, next) {
-  console.log(req.body)
   Student.create(req.body)
   .then(newStudent => res.status(200).send(newStudent))
   .catch(next)

@@ -5,7 +5,7 @@ const Campus = (props) => {
   // const students = props.students;
   // const campus = props.campus;
   const selectedCampus = props.selectedCampus;
-  console.log('students in one campus', props)
+  // console.log('students in one campus', props)
 
   return (
     <div>
