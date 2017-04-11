@@ -11,3 +11,5 @@ module.exports = db.define('student', {
     }
   }
 })
+
+// name could probably be first & last names

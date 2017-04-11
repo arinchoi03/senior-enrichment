@@ -9,13 +9,15 @@ const studentRouter = require('./routes/studentRouter')
 	// Ideally you would have something to handle this, so if you have time try that out!
 api.get('/hello', (req, res) => res.send({hello: 'world'}))
 
-api.get('/', function(req, res, next) {
-	res.send(`You're at home!`)
-})
+// api.get('/', function(req, res, next) {
+// 	res.send(`You're at home!`)
+// })
 
+// splits api routes into two different routers
 api.use('/campuses', campusRouter)
 api.use('/students', studentRouter)
 
+// catching errors
 api.use(function(err, req, res, next) {
 	console.error(err.message)
 	res.status(500).send(err.message)

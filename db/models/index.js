@@ -12,3 +12,5 @@ Student.belongsTo(Campus)
 Campus.hasMany(Student)
 
 module.exports = {Student, Campus}
+
+// Student has a campusId on its table

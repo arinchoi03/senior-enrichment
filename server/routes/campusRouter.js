@@ -2,6 +2,10 @@ const campusRouter = require('express').Router()
 const db = require('../../db/models')
 const Campus = db.Campus;
 
+
+////////  ROUTES TO '/'
+
+// retreives all campuses from db
 campusRouter.get('/', function(req, res, next) {
   Campus.findAll()
   .then((allCampuses) => {
@@ -10,6 +14,18 @@ campusRouter.get('/', function(req, res, next) {
   .catch(next);
 })
 
+// creates a new campus instance
+campusRouter.post('/', function(req, res, next) {
+  Campus.create(req.body)
+  .then(newCampus => res.status(200).send(newCampus))
+  .catch(next)
+})
+
+
+////////  ROUTES TO '/:studentId'
+
+// can refactor w app.param - for now stays this way
+// gets one campus & responds with the campus
 campusRouter.get('/:campusId', function(req, res, next) {
   if (typeof (+req.params.campusId) !== 'number') {
     res.status(404).send('Invalid Campus Id entered!')
@@ -26,18 +42,14 @@ campusRouter.get('/:campusId', function(req, res, next) {
   }
 })
 
-campusRouter.post('/', function(req, res, next) {
-  Campus.create(req.body)
-  .then(newCampus => res.status(200).send(newCampus))
-  .catch(next)
-})
-
+// edits one campus
 campusRouter.put('/:campusId', function(req, res, next) {
   Campus.update(req.body)
   .then(updatedCampus => res.status(201).send(updatedCampus))
   .catch(next)
 })
 
+// deletes one campus
 campusRouter.delete('/:campusId', function(req, res, next) {
   Campus.destroy({
     where: {

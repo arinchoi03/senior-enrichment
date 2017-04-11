@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 
+//\//\//\//\//\ ACTION CREATORS //\//\//\//\//\
 export const addCampus = function(campus) {
   return {
     type: 'ADD_CAMPUS',
@@ -43,6 +44,8 @@ export const getCampusById = function(campusId) {
   }
 }
 
+
+//\//\//\//\//\ DISPATCHERS //\//\//\//\//\
 
 export const addACampus = function(campus) {
   return function(dispatch) {
