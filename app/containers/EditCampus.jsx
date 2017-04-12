@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import store from '../store'
 import { editACampus } from '../action-creators/campuses'
 
-export default class EditCampusForm extends Component {
+class EditCampus extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,6 +27,8 @@ export default class EditCampusForm extends Component {
 
 
   render() {
+    const selectedCampus = this.props.selectedCampus;
+    // auto populate name/imageURL of campus selected for edit
     return (<form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label htmlFor="campusName">Campus Name</label>
@@ -34,7 +36,7 @@ export default class EditCampusForm extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  placeholder="name"
+                  placeholder={selectedCampus.name}
                   onChange={this.handleChange}
                 />
               </div>
@@ -44,7 +46,7 @@ export default class EditCampusForm extends Component {
                   type="text"
                   className="form-control"
                   id="imageURL"
-                  placeholder="imageURL"
+                  placeholder={selectedCampus.imageURL}
                   onChange={this.handleChange}
                 />
               </div>
@@ -53,5 +55,15 @@ export default class EditCampusForm extends Component {
   }
 }
 
-// SAME as AddCampusForm - maybe there's a way to refactor?
-// only difference is which function gets called at handlechange...
+const mapStateToProps = (state) => {
+
+  //to access prop in current state - state.campusData.campuses
+  return {
+    selectedCampus: state.campusData.selectedCampus
+  }
+}
+
+const EditCampusForm = connect(
+  mapStateToProps)(EditCampus);
+
+export default EditCampusForm;

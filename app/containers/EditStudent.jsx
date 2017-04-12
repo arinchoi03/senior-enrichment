@@ -30,7 +30,9 @@ class EditStudent extends Component {
 
 
   render() {
-    const campuses = this.props.campuses
+    const campuses = this.props.campuses;
+    const selectedStudent = this.props.selectedStudent;
+    // auto-generated student's name/email being edited
     return (<form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label htmlFor="studentName">Student name</label>
@@ -38,7 +40,7 @@ class EditStudent extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  placeholder="name"
+                  placeholder={selectedStudent.name}
                   onChange={this.handleChange}
                 />
               </div>
@@ -48,7 +50,7 @@ class EditStudent extends Component {
                   type="email"
                   className="form-control"
                   id="email"
-                  placeholder="email"
+                  placeholder={selectedStudent.email}
                   onChange={this.handleChange}
                 />
               </div>

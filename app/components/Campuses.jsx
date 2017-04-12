@@ -25,18 +25,20 @@ export default function Campuses(props) {
                         </span>
                       </Link>
                       <div>
-                        <button className="btn btn-link" onClick={(e) => {
+                        <button
+                        className="btn btn-link"
+                        onClick={(e) => {
                           e.preventDefault()
                           deleteCampus(campus)}
                         }>
-                          <span className="glyphicon glyphicon-remove">REMOVE</span>
+                          <span id="campusBtn" className="glyphicon glyphicon-remove">REMOVE</span>
                         </button>
                         <button
                           className="btn btn-link btn-sm"
                           data={campus.id}
                           onClick={() => setCampus(campus)}>
                           <Link to={`/edit-campus/${campus.id}`}>
-                          <span className="glyphicon glyphicon-pencil">EDIT</span>
+                          <span id="campusBtn" className="glyphicon glyphicon-pencil">EDIT</span>
                           </Link>
                         </button>
                       </div>
