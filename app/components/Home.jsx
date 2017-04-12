@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-//Home container???
-
 const Home = ({children}) => {
   return (
     <div>

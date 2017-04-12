@@ -9,7 +9,6 @@ export default function Students(props) {
   const setCampus = props.setCampus;
   // const addStudent = props.addStudent;
   const removeStudent = props.removeStudent;
-  const editStudent = props.editStudent;
 
     return (<div>
               <h2>Students</h2>
@@ -32,14 +31,20 @@ export default function Students(props) {
                     student => <tr key={student.id}>
                       <td><Link to={`/students/${student.id}`} onClick={() => setStudent(student)}>{student.name}</Link></td>
                       <td>{student.email}</td>
-                      <td><Link to={`/campuses/${student.campusId}`} onClick={() => setCampus(student.campusId)}>{campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}</Link>
+                      {/*below onClick of link to campus, sets the campus to selectedCampus
+                        also shows the campus for the specific students' campus at the row by mapping thru
+                        maybe there is a cleaner solution?*/}
+                      <td><Link to={`/campuses/${student.campusId}`}
+                                onClick={() => setCampus(student.campusId)}>
+                                {campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}
+                          </Link>
                       </td>
                       <td>
                         <button
                           className="btn btn-link btn-sm"
                           data={student.id}
-                            onClick={(e) => {
-                            e.preventDefault()
+                            onClick={(evt) => {
+                            evt.preventDefault()
                             removeStudent(student.id)
                           }
                         }>

@@ -12,6 +12,8 @@ class EditStudent extends Component {
       email: '',
       campusId: ''
     }
+
+    // binds these two functions to this particular state
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
 
@@ -81,9 +83,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-// need to pull in some function to dispatch addStudent
-
 const EditStudentForm = connect(
   mapStateToProps)(EditStudent);
 
 export default EditStudentForm;
+
+// SAME as AddStudentForm - maybe there's a way to refactor?
+// only difference is which function gets called at handlechange...

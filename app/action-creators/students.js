@@ -48,7 +48,8 @@ export const getStudentById = function(studentId) {
   }
 }
 
-
+// post (adds) new student
+// second parameter after the route is the payload (req.body)
 export const addAStudent = function(student) {
   return function(dispatch) {
     return axios.post(`/api/students/`, student)
@@ -70,14 +71,14 @@ export const deleteAStudent = function(studentId) {
   }
 }
 
-
+// when editing the student, takes the id of the selectedStudent clicked on (from Students comp)
+// used to navigate ot the correct api route below
 export const editAStudent = function(student, id) {
   return function(dispatch) {
     return axios.put(`/api/students/${id}`, student)
       .then(res => {
         dispatch(editStudent(res.data))
         browserHistory.push('/students')
-        // redirect push not working (can't redirect to the page it's on?)
       })
   }
 }

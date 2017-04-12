@@ -46,6 +46,8 @@ export const getCampusById = function(campusId) {
   }
 }
 
+// post (adds) new campus
+// second parameter after the route is the payload (req.body)
 export const addACampus = function(campus) {
   return function(dispatch) {
     return axios.post(`/api/campuses`, campus)
@@ -66,6 +68,8 @@ export const deleteACampus = function(campus) {
   }
 }
 
+// when editing a campus, takes the id of the student clicked on (from Campuses comp) thru routeParams
+// used to navigate ot the correct api route below
 export const editACampus = function(campus, id) {
   return function(dispatch) {
     return axios.put(`/api/campuses/${id}`, campus)

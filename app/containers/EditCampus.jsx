@@ -52,4 +52,6 @@ export default class EditCampusForm extends Component {
             </form>)
   }
 }
-{/*onSubmit={/*enter function to dispatch action that adds student*/}
+
+// SAME as AddCampusForm - maybe there's a way to refactor?
+// only difference is which function gets called at handlechange...

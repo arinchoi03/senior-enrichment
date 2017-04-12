@@ -11,7 +11,7 @@
 //     {name: "Venus", imageURL: "https://s-media-cache-ak0.pinimg.com/736x/f9/44/ea/f944eae109084d6fa457739443c05594.jpg"},
 //     {name: "Mercury", imageURL: "https://s-media-cache-ak0.pinimg.com/736x/10/9a/92/109a92cbe0a605fcf19cd6f3bf6daed5.jpg"},
 //     {name: "Mars", imageURL: "https://static2.comicvine.com/uploads/scale_small/1/13820/2107614-imagen_2.png"},
-//     {name: "Jupiter", imageURL: "https://s-media-cache-ak0.pinimg.com/736x/f9/44/ea/f944eae109084d6fa457739443c05594.jpg"}
+//     {name: "Jupiter", imageURL: "http://vignette3.wikia.nocookie.net/sailormoon/images/1/1f/NewArt_17.jpg/revision/latest?cb=20120124004501"}
 //   ],
 //   student: [
 //     {name: "Arin", email: 'arin@gmail.com'},
