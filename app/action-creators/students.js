@@ -64,8 +64,21 @@ export const deleteAStudent = function(studentId) {
     return axios.delete(`/api/students/${studentId}`)
       .then(res => {
         dispatch(removeStudent(studentId))
-        browserHistory.push('/students')
-        // trying to redirect...not really working?
+        browserHistory.go('/students')
+        // redirect push not working (can't redirect to the page it's on?)
+      })
+  }
+}
+
+
+export const editAStudent = function(student) {
+  return function(dispatch) {
+    return axios.put(`/api/students/${student.id}`)
+      .then(res => {
+        console.log(res.data)
+        dispatch(editStudent(res.data))
+        browserHistory.go('/students')
+        // redirect push not working (can't redirect to the page it's on?)
       })
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import Students from '../components/Students'
-import { selectStudent, addStudent, deleteAStudent } from '../action-creators/students'
+import { selectStudent, deleteAStudent } from '../action-creators/students'
 import { getCampusById } from '../action-creators/campuses'
 
 const mapStateToProps = (state) => {

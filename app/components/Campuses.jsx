@@ -31,6 +31,14 @@ export default function Campuses(props) {
                         }>
                           <span className="glyphicon glyphicon-remove">REMOVE</span>
                         </button>
+                        <button
+                          className="btn btn-link btn-sm"
+                          data={campus.id}
+                          onClick={() => setCampus(campus)}>
+                          <Link to={`/edit-campus/${campus.id}`}>
+                          <span className="glyphicon glyphicon-pencil">EDIT</span>
+                          </Link>
+                        </button>
                       </div>
                     </div>)
           }

@@ -22,7 +22,7 @@ campusRouter.post('/', function(req, res, next) {
 })
 
 
-////////  ROUTES TO '/:studentId'
+////////  ROUTES TO '/:campusId'
 
 // can refactor w app.param - for now stays this way
 // gets one campus & responds with the campus
@@ -42,9 +42,12 @@ campusRouter.get('/:campusId', function(req, res, next) {
   }
 })
 
-// edits one campus
+// edits one campus where id matches params.id
 campusRouter.put('/:campusId', function(req, res, next) {
-  Campus.update(req.body)
+  Campus.update(req.body, {
+      where: {id: req.params.campusId}
+    }
+  )
   .then(updatedCampus => res.status(201).send(updatedCampus))
   .catch(next)
 })

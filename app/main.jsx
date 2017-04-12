@@ -18,6 +18,8 @@ import StudentsContainer from './containers/StudentsContainer'
 import StudentContainer from './containers/StudentContainer'
 import NewCampusForm from './containers/NewCampus'
 import NewStudentForm from './containers/NewStudent'
+import EditCampusForm from './containers/EditCampus'
+import EditStudentForm from './containers/EditStudent'
 
 // Components
 // import Campus from './components/Campus'
@@ -72,6 +74,8 @@ ReactDOM.render(
         <Route path = "/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
         <Route path = "/new-student" component={NewStudentForm} />
         <Route path = "/new-campus" component={NewCampusForm} />
+        {/*<Route path = "/edit-student" component={EditStudentForm} />*/}
+        <Route path = "/edit-campus/:campusId" component={EditCampusForm} />
         <IndexRedirect to = "/campuses" />
       </Route>
     </Router>

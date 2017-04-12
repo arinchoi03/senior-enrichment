@@ -37,6 +37,8 @@ export const selectCampus = function(campus) {
   }
 }
 
+//\//\//\//\//\ DISPATCHERS //\//\//\//\//\
+
 export const getCampusById = function(campusId) {
   return function(dispatch) {
     return axios.get(`/api/campuses/${campusId}`)
@@ -44,12 +46,9 @@ export const getCampusById = function(campusId) {
   }
 }
 
-
-//\//\//\//\//\ DISPATCHERS //\//\//\//\//\
-
 export const addACampus = function(campus) {
   return function(dispatch) {
-    return axios.post(`/api/campuses/`, campus)
+    return axios.post(`/api/campuses`, campus)
       .then((res) => {
         dispatch(addCampus(campus))
         browserHistory.push(`/campuses`)
@@ -62,7 +61,19 @@ export const deleteACampus = function(campus) {
     return axios.delete(`/api/campuses/${campus.id}`)
       .then((res) => {
         dispatch(removeCampus(campus))
-        browserHistory.push('/campuses')
+        browserHistory.go('/campuses')
       })
   }
 }
+
+export const editACampus = function(campus, id) {
+  return function(dispatch) {
+    return axios.put(`/api/campuses/${id}`, campus)
+      .then(res => {
+        dispatch(editCampus(campus))
+        browserHistory.go('/campuses')
+      })
+  }
+}
+
+// PROBLEM: after edit/delete/add, it takes an extra re-load to update correctly...

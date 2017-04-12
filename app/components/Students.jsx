@@ -7,8 +7,9 @@ export default function Students(props) {
   const campuses = props.campuses;
   const setStudent = props.setStudent;
   const setCampus = props.setCampus;
-  const addStudent = props.addStudent;
+  // const addStudent = props.addStudent;
   const removeStudent = props.removeStudent;
+  const editStudent = props.editStudent;
 
     return (<div>
               <h2>Students</h2>
@@ -34,11 +35,22 @@ export default function Students(props) {
                       <td><Link to={`/campuses/${student.campusId}`} onClick={() => setCampus(student.campusId)}>{campuses.map(campus => ((campus.id === student.campusId) ? campus.name : null))}</Link>
                       </td>
                       <td>
-                        <button className="btn btn-link btn-sm" data={student.id} onClick={(e) => {
-                          e.preventDefault()
-                          removeStudent(student.id)}
+                        <button
+                          className="btn btn-link btn-sm"
+                          data={student.id}
+                            onClick={(e) => {
+                            e.preventDefault()
+                            removeStudent(student.id)
+                          }
                         }>
                           <span className="glyphicon glyphicon-remove" />
+                        </button>
+                        <button
+                          className="btn btn-link btn-sm"
+                          data={student.id}>
+                          <Link to={`/edit-student`}>
+                          <span className="glyphicon glyphicon-pencil" />
+                          </Link>
                         </button>
                       </td>
                     </tr>
