@@ -35,7 +35,6 @@ import {getStudentById, getStudents} from './action-creators/students'
 const onHomeEnter = () => {
   const allCampuses = axios.get('/api/campuses')
     .then(function(res) {
-      // console.log('RES DATA IN MAIN', res.data)
       return res.data
     })
   const allStudents = axios.get('/api/students').then((res) => {
@@ -74,7 +73,7 @@ ReactDOM.render(
         <Route path = "/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
         <Route path = "/new-student" component={NewStudentForm} />
         <Route path = "/new-campus" component={NewCampusForm} />
-        {/*<Route path = "/edit-student" component={EditStudentForm} />*/}
+        <Route path = "/edit-student/:studentId" component={EditStudentForm} />
         <Route path = "/edit-campus/:campusId" component={EditCampusForm} />
         <IndexRedirect to = "/campuses" />
       </Route>

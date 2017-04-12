@@ -6,8 +6,6 @@ import { selectStudent, deleteAStudent } from '../action-creators/students'
 import { getCampusById } from '../action-creators/campuses'
 
 const mapStateToProps = (state) => {
-  // console.log('in Student Container, state studentData', state.studentData)
-  // console.log('in Student Container - selectedStud', selectedStudent)
 
   return {
     selectedStudent: state.studentData.selectedStudent,

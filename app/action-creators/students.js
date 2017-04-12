@@ -71,14 +71,16 @@ export const deleteAStudent = function(studentId) {
 }
 
 
-export const editAStudent = function(student) {
+export const editAStudent = function(student, id) {
   return function(dispatch) {
-    return axios.put(`/api/students/${student.id}`)
+    return axios.put(`/api/students/${id}`, student)
       .then(res => {
-        console.log(res.data)
         dispatch(editStudent(res.data))
-        browserHistory.go('/students')
+        browserHistory.push('/students')
         // redirect push not working (can't redirect to the page it's on?)
       })
   }
 }
+
+//always needs an extra refresh before it all updates correctly
+// why is this?!?!?

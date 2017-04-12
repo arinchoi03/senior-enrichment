@@ -47,8 +47,9 @@ export default function Students(props) {
                         </button>
                         <button
                           className="btn btn-link btn-sm"
-                          data={student.id}>
-                          <Link to={`/edit-student`}>
+                          data={student.id}
+                          onClick={() => setStudent(student)}>
+                          <Link to={`/edit-student/${student.id}`}>
                           <span className="glyphicon glyphicon-pencil" />
                           </Link>
                         </button>
