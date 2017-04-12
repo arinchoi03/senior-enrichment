@@ -52,10 +52,10 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
 - Actions: as a user I...
   * x can create a campus - issue: when campus created, it gets added to students list??
-  * can edit a campus's info, including adding/removing a student to/from that campus
+  * x can edit a campus's info, including adding/removing a student to/from that campus
   * x can delete a campus
   * x can create a student
-  * can edit a student's info, including the campus that student is assigned to
+  * x can edit a student's info, including the campus that student is assigned to
   * x can delete a student
 
 ### Routes
