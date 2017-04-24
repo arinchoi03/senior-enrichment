@@ -10,10 +10,10 @@ export const addStudent = function(student) {
   }
 }
 
-export const removeStudent = function(student) {
+export const removeStudent = function(students) {
   return {
     type: 'REMOVE_STUDENT',
-    student: student
+    students: students
   }
 }
 
@@ -54,9 +54,9 @@ export const addAStudent = function(student) {
   return function(dispatch) {
     return axios.post(`/api/students/`, student)
       .then(res => {
-        dispatch(addStudent(student))
+        dispatch(addStudent(res.data))
+        browserHistory.push('/students')
       })
-      .then(browserHistory.push(`/students`))
   }
 }
 
@@ -64,9 +64,7 @@ export const deleteAStudent = function(studentId) {
   return function(dispatch) {
     return axios.delete(`/api/students/${studentId}`)
       .then(res => {
-        dispatch(removeStudent(studentId))
-        browserHistory.go('/students')
-        // redirect push not working (can't redirect to the page it's on?)
+        dispatch(removeStudent(res.data)) //receives array of students
       })
   }
 }

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 
 import campusReducer from './campus-reducer'
 import studentReducer from './student-reducer'

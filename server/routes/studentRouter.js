@@ -56,8 +56,9 @@ studentRouter.put('/:studentId', function(req, res, next) {
 studentRouter.delete('/:studentId', function(req, res, next) {
   req.studentById.destroy()
     .then(() => {
-      res.send('deleted student')
+      return Student.findAll()
     })
+    .then((students => res.send(students)))
     .catch(next)
 })
 

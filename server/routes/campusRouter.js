@@ -17,7 +17,10 @@ campusRouter.get('/', function(req, res, next) {
 // creates a new campus instance
 campusRouter.post('/', function(req, res, next) {
   Campus.create(req.body)
-  .then(newCampus => res.status(200).send(newCampus))
+  .then(newCampus => {
+    console.log(newCampus)
+    res.status(200).send(newCampus)
+  })
   .catch(next)
 })
 
@@ -59,7 +62,10 @@ campusRouter.delete('/:campusId', function(req, res, next) {
       id: req.params.campusId
     }
   })
-  .then(() => res.send('Campus has been deleted'))
+  .then((anyData) => {
+    return Campus.findAll()
+  })
+  .then(campuses => res.send(campuses))
   .catch(next)
 })
 

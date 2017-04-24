@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router'
 
 export default function Campuses(props) {
-
+  console.log('props', props)
   const campuses = props.campuses;
   const setCampus = props.setCampus;
   const deleteCampus = props.deleteCampus;

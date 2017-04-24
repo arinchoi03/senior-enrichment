@@ -1,9 +1,11 @@
+'use strict'
+import Immutable from 'immutable'
 //\//\//\//\//\ CAMPUS INITIAL STATE //\//\//\//\//\
 
-const campusInitialState = {
+const campusInitialState = Immutable.fromJS({
   campuses: [],
   selectedCampus: {}
-}
+})
 
 //\//\//\//\//\ CAMPUS CONSTANTS //\//\//\//\//\
 
@@ -18,31 +20,26 @@ const SELECT_CAMPUS = 'SELECT_CAMPUS';
 
 export default function ( state = campusInitialState, action) {
 
-  const newState = Object.assign({}, state)
-
   switch (action.type) {
     case GET_CAMPUSES:
       // retrieves all campuses from db & sets it to store.state's campuses
-      newState.campuses = action.campuses
-      break;
+      return state.set('campuses', action.campuses)
     case ADD_CAMPUS:
       // concats new campus to the end of the campuses array
-      newState.campuses = [...state.campuses, action.campus]
+      // state.toJS().campuses.push(action.campus)
+      state.update('campuses', campuses => campuses.push(action.campus))
       break;
     case REMOVE_CAMPUS:
       // runs through array of campuses & filters out specific campus w/ id
-      newState.campuses = state.campuses.filter((campus) => campus.id !== action.campus)
-      break;
+      return state.set('campuses', action.campuses)
     case EDIT_CAMPUS:
       // updates the current selectedCampus
-      newState.selectedCampus = action.campus
-      break;
+      return state.set('selectedCampus', action.campus)
     case SELECT_CAMPUS:
       // sets selectedCampus on state
-      newState.selectedCampus = action.campus;
-      break;
+      return state.set('selectedCampus', action.campus)
     default:
       return state
   }
-  return newState;
+  return state
 }

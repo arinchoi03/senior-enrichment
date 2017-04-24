@@ -4,13 +4,13 @@ import Campuses from '../components/Campuses'
 import { selectCampus, deleteACampus } from '../action-creators/campuses'
 
 const mapStateToProps = (state) => {
-
+  console.log('state', state.toJS()) // looks correct, but empty
   //to access prop in current state - state.campusData.campuses
   return {
-    campuses: state.campusData.campuses,
-    selectedCampus: state.campusData.selectedCampus,
-    students: state.studentData.students,
-    selectedStudent: state.studentData.selectedStudent
+    campuses: state.toJS().campusData.campuses,
+    selectedCampus: state.toJS().campusData.selectedCampus,
+    students: state.toJS().studentData.students,
+    selectedStudent: state.toJS().studentData.selectedStudent
   }
 }
 
