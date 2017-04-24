@@ -1,9 +1,12 @@
+'use strict';
+const { Map } = require('immutable');
+
 //\//\//\//\//\ STUDENT INITIAL STATE //\//\//\//\//\
 
-const studentInitialState = {
+const studentInitialState = Map({
   students: [],
   selectedStudent: {}
-}
+})
 
 //\//\//\//\//\ STUDENT CONSTANTS //\//\//\//\//\
 
@@ -28,7 +31,6 @@ export default function ( state = studentInitialState, action) {
     case ADD_STUDENT:
       // concats new student to the end of students array
       newState.students = [...state.students, action.student]
-      break;
     case REMOVE_STUDENT:
       //puts new state's student array as array filtering out student that doesn't match
       newState.students = state.students.filter((student) => (student.id !== action.student.id))

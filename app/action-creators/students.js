@@ -55,8 +55,8 @@ export const addAStudent = function(student) {
     return axios.post(`/api/students/`, student)
       .then(res => {
         dispatch(addStudent(student))
-        browserHistory.push(`/students`)
       })
+      .then(browserHistory.push(`/students`))
   }
 }
 
