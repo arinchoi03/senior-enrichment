@@ -5,16 +5,16 @@ import { connect } from 'react-redux'
 import Campus from '../components/Campus'
 
 const mapStateToProps = (state) => {
-  const filteredStudents = state.toJS().studentData.students.filter((student) => {
-    return student.campusId === state.toJS().campusData.selectedCampus.id
+  const filteredStudents = state.get('studentData').get('students').filter((student) => {
+    return student.campusId === state.get('campusData').get('selectedCampus').id
   })
   //returns array of students in campus: // console.log('look at the filtered students in campuscontainer', filteredStudents)
 
   return {
     students: filteredStudents,
-    selectedCampus: state.toJS().campusData.selectedCampus,
-    campuses: state.toJS().campusData.campuses,
-    selectedStudent: state.toJS().studentData.selectedStudent
+    selectedCampus: state.get('campusData').get('selectedCampus'),
+    campuses: state.get('campusData').get('campuses'),
+    selectedStudent: state.get('studentData').get('selectedStudent')
   }
 }
 
