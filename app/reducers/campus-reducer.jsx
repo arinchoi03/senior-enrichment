@@ -28,7 +28,6 @@ export default function ( state = campusInitialState, action) {
     case ADD_CAMPUS:
       // concats new campus to the end of the campuses array
       newState.campuses = [...state.campuses, action.campus]
-      break;
     case REMOVE_CAMPUS:
       // runs through array of campuses & filters out specific campus w/ id
       newState.campuses = state.campuses.filter((campus) => campus.id !== action.campus)
