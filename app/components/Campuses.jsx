@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router'
+import Immutable from 'immutable'
 
 export default function Campuses(props) {
-  console.log('props', props)
-  const campuses = props.campuses;
+  const campuses = props.campuses.toJS();
   const setCampus = props.setCampus;
   const deleteCampus = props.deleteCampus;
 
