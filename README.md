@@ -1,16 +1,10 @@
-# Senior Enrichment Project
+# Sailor Interplanetary Academy of Javascript
 
-Make a thing!
+## Senior Enrichment Project
 
-## Getting started
+This project was presented to Grace Hopper 1702 students so students could add optional 25 points on the senior checkpoints.
 
-1. Fork and clone this repo
-2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name.
-3. `npm install`
-4. Check out the mock-view in the `wireframes` folder
-5. Start the build process with: `npm run build-watch`
-6. In another terminal, start your app with `npm start`
-7. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
+I completed this senior enrichment project and refactored part of the code (Campuses) to use Immutable.js.
 
 ## Requirements
 
@@ -85,11 +79,3 @@ DELETE
 x a campus
 x a student
 ```
-
-## Evaluation
-
-- Code modularity/readability (25%)
-- Models (25%)
-- Routes (25%)
-- Frontend logic and functionality (25%)
-- Design + Bonus features (up to 10 Extra Credit points)
