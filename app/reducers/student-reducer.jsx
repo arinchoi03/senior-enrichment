@@ -1,9 +1,12 @@
+'use strict'
+import Immutable from 'immutable'
+
 //\//\//\//\//\ STUDENT INITIAL STATE //\//\//\//\//\
 
-const studentInitialState = {
+const studentInitialState = Immutable.fromJS({
   students: [],
   selectedStudent: {}
-}
+})
 
 //\//\//\//\//\ STUDENT CONSTANTS //\//\//\//\//\
 
@@ -18,31 +21,25 @@ const SELECT_STUDENT = 'SELECT_STUDENT'
 
 export default function ( state = studentInitialState, action) {
 
-  let newState = Object.assign({}, state)
-
   switch (action.type) {
     case GET_STUDENTS:
       // retreives all students from db & sets it to store.state's students
-      newState.students = action.students
-      break;
+      return state.set('students', action.students)
     case ADD_STUDENT:
       // concats new student to the end of students array
-      newState.students = [...state.students, action.student]
+      state.update('students', students => students.push(action.student))
       break;
     case REMOVE_STUDENT:
       //puts new state's student array as array filtering out student that doesn't match
-      newState.students = state.students.filter((student) => (student.id !== action.student.id))
-      break;
+      return state.set('students', action.students)
     case EDIT_STUDENT:
       // update the currently selected student
-      newState.selectedStudent = action.student
-      break;
+      return state.set('selectedStudent', action.student)
     case SELECT_STUDENT:
       // sets selectedStudent on state
-      newState.selectedStudent = action.student;
-      break;
+      return state.set('selectedStudent', action.student)
     default:
       return state;
   }
-  return newState;
+  return state
 }

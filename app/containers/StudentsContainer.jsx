@@ -9,9 +9,9 @@ const mapStateToProps = (state) => {
 
   //to access prop in current state - state.campusData.campuses
   return {
-    students: state.studentData.students,
-    selectedStudent: state.studentData.selectedStudent,
-    campuses: state.campusData.campuses
+    students: state.get('studentData').get('students'),
+    selectedStudent: state.get('studentData').get('selectedStudent'),
+    campuses: state.get('campusData').get('campuses')
   }
 }
 

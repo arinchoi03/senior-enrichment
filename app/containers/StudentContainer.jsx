@@ -8,10 +8,10 @@ import { getCampusById } from '../action-creators/campuses'
 const mapStateToProps = (state) => {
 
   return {
-    selectedStudent: state.studentData.selectedStudent,
-    campuses: state.campusData.campuses,
-    students: state.studentData.students,
-    selectedCampus: state.campusData.selectedCampus
+    selectedStudent: state.get('studentData').get('selectedStudent'),
+    campuses: state.get('campusData').get('campuses'),
+    students: state.get('studentData').get('students'),
+    selectedCampus: state.get('campusData').get('selectedCampus')
   }
 }
 

@@ -9,10 +9,10 @@ export const addCampus = function(campus) {
   }
 }
 
-export const removeCampus = function(campus) {
+export const removeCampus = function(campuses) {
   return {
     type: 'REMOVE_CAMPUS',
-    campus: campus
+    campuses: campuses
   }
 }
 
@@ -52,7 +52,7 @@ export const addACampus = function(campus) {
   return function(dispatch) {
     return axios.post(`/api/campuses`, campus)
       .then((res) => {
-        dispatch(addCampus(campus))
+        dispatch(addCampus(res.data))
         browserHistory.push(`/campuses`)
       })
   }
@@ -62,8 +62,7 @@ export const deleteACampus = function(campus) {
   return function(dispatch) {
     return axios.delete(`/api/campuses/${campus.id}`)
       .then((res) => {
-        dispatch(removeCampus(campus))
-        browserHistory.go('/campuses')
+        dispatch(removeCampus(res.data)) //receives array of new campuses
       })
   }
 }
